@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>琪华能源 - 领先的无人机电池技术</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#0FC6C2',
+                        accent: '#FF7D00',
+                        dark: '#1D2129',
+                        light: '#F2F3F5'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .transition-custom {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .hover-scale {
+                @apply hover:scale-105 transition-all duration-300;
+            }
+            .card-shadow {
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+            }
+        }
+    </style>
+</head>
+<body class="font-inter text-dark bg-white">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <span class="text-primary text-2xl font-bold">Power<span class="text-accent">Up</span></span>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-dark hover:text-primary transition-colors font-medium">首页</a>
+                <a href="#products" class="text-dark hover:text-primary transition-colors font-medium">产品</a>
+                <a href="#technology" class="text-dark hover:text-primary transition-colors font-medium">技术</a>
+                <a href="#applications" class="text-dark hover:text-primary transition-colors font-medium">应用</a>
+                <a href="#about" class="text-dark hover:text-primary transition-colors font-medium">关于我们</a>
+                <a href="#contact" class="text-dark hover:text-primary transition-colors font-medium">联系我们</a>
+            </nav>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menuBtn" class="md:hidden text-dark focus:outline-none">
+                <i class="fa fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="#home" class="text-dark hover:text-primary transition-colors font-medium py-2">首页</a>
+                <a href="#products" class="text-dark hover:text-primary transition-colors font-medium py-2">产品</a>
+                <a href="#technology" class="text-dark hover:text-primary transition-colors font-medium py-2">技术</a>
+                <a href="#applications" class="text-dark hover:text-primary transition-colors font-medium py-2">应用</a>
+                <a href="#about" class="text-dark hover:text-primary transition-colors font-medium py-2">关于我们</a>
+                <a href="#contact" class="text-dark hover:text-primary transition-colors font-medium py-2">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-light to-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-primary/5 rounded-l-full -translate-y-1/4 translate-x-1/4"></div>
+            <div class="absolute bottom-0 left-0 w-1/3 h-1/2 bg-secondary/5 rounded-r-full translate-y-1/4 -translate-x-1/4"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 py-20 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0">
+                    <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight mb-6">
+                        创新电池技术<br>
+                        <span class="text-primary">驱动无人机未来</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg">
+                        琪华能源 提供行业领先的无人机电池解决方案，采用先进材料和智能管理系统，延长飞行时间，提升安全性，为您的无人机提供持久动力。
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#products" class="bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-lg transition-custom text-center hover-scale">
+                            探索产品
+                        </a>
+                        <a href="#contact" class="bg-transparent border-2 border-primary text-primary hover:bg-primary/5 font-medium py-3 px-8 rounded-lg transition-custom text-center hover-scale">
+                            联系我们
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 relative">
+                    <div class="relative">
+                        <img src="./img/image2.png" alt="无人机与电池展示" class="rounded-xl shadow-2xl w-full hover-scale">
+                        <div class="absolute -bottom-5 -left-5 bg-white p-4 rounded-lg shadow-lg">
+                            <div class="flex items-center">
+                                <div class="bg-primary/10 p-3 rounded-full mr-3">
+                                    <i class="fa fa-bolt text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">延长飞行时间</p>
+                                    <p class="font-bold">提升 40% 续航</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -top-5 -right-5 bg-white p-4 rounded-lg shadow-lg">
+                            <div class="flex items-center">
+                                <div class="bg-accent/10 p-3 rounded-full mr-3">
+                                    <i class="fa fa-shield text-accent text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">安全保障</p>
+                                    <p class="font-bold">智能电池管理</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 滚动指示器 -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#features" class="text-gray-400 hover:text-primary transition-colors">
+                    <i class="fa fa-angle-down text-3xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特点部分 -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">为什么选择我们的电池</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">我们的无人机电池融合了最新的技术突破，为您提供卓越的性能和可靠的飞行体验</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 特点卡片 1 -->
+                <div class="bg-light rounded-xl p-8 card-shadow hover-scale">
+                    <div class="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-bolt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">高能量密度</h3>
+                    <p class="text-gray-600">采用最新的锂离子技术，提供更高的能量密度，延长无人机飞行时间，提升工作效率。</p>
+                </div>
+                
+                <!-- 特点卡片 2 -->
+                <div class="bg-light rounded-xl p-8 card-shadow hover-scale">
+                    <div class="bg-secondary/10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-microchip text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">智能管理系统</h3>
+                    <p class="text-gray-600">内置智能电池管理系统（BMS），精确监控电池状态，防止过充过放，延长电池使用寿命。</p>
+                </div>
+                
+                <!-- 特点卡片 3 -->
+                <div class="bg-light rounded-xl p-8 card-shadow hover-scale">
+                    <div class="bg-accent/10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-thermometer-half text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">温度适应性</h3>
+                    <p class="text-gray-600">特殊的热管理设计，确保电池在极端温度环境下仍能保持稳定性能，适应各种复杂场景。</p>
+                </div>
+                
+                <!-- 特点卡片 4 -->
+                <div class="bg-light rounded-xl p-8 card-shadow hover-scale">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-recycle text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">环保材料</h3>
+                    <p class="text-gray-600">采用环保可回收材料制造，减少对环境的影响，符合可持续发展理念。</p>
+                </div>
+                
+                <!-- 特点卡片 5 -->
+                <div class="bg-light rounded-xl p-8 card-shadow hover-scale">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-tachometer text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">快充技术</h3>
+                    <p class="text-gray-600">支持快速充电技术，缩短充电时间，提高工作效率，让您的无人机随时待命。</p>
+                </div>
+                
+                <!-- 特点卡片 6 -->
+                <div class="bg-light rounded-xl p-8 card-shadow hover-scale">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-heartbeat text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">安全保障</h3>
+                    <p class="text-gray-600">多重安全保护设计，防止短路、过温等风险，确保使用过程中的安全性和可靠性。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品展示 -->
+    <section id="products" class="py-20 bg-gradient-to-b from-light to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">我们的产品系列</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">为不同应用场景提供定制化的电池解决方案，满足您的各种需求</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 产品卡片 1 -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow hover-scale">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/160/600/400" alt="琪华能源 Pro 系列电池" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">
+                            畅销
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">琪华能源 Pro 系列</h3>
+                        <p class="text-gray-600 mb-4">专业级无人机电池，为商业应用提供持久动力，适用于测绘、巡检等任务。</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">¥1,299</span>
+                                <span class="text-gray-400 line-through ml-2">¥1,499</span>
+                            </div>
+                            <a href="#contact" class="bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg transition-custom">
+                                立即购买
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品卡片 2 -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow hover-scale">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/163/600/400" alt="琪华能源 Elite 系列电池" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-accent text-white text-sm font-bold px-3 py-1 rounded-full">
+                            新品
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">琪华能源 Elite 系列</h3>
+                        <p class="text-gray-600 mb-4">高端无人机电池，专为高端航拍和专业影视制作设计，提供卓越的续航能力。</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">¥1,899</span>
+                                <span class="text-gray-400 line-through ml-2">¥2,199</span>
+                            </div>
+                            <a href="#contact" class="bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg transition-custom">
+                                立即购买
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品卡片 3 -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow hover-scale">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/119/600/400" alt="琪华能源 Mini 系列电池" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">琪华能源 Mini 系列</h3>
+                        <p class="text-gray-600 mb-4">小型轻量化电池，为小型无人机设计，兼顾便携性和性能，适合个人使用。</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">¥799</span>
+                                <span class="text-gray-400 line-through ml-2">¥899</span>
+                            </div>
+                            <a href="#contact" class="bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg transition-custom">
+                                立即购买
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+                    查看全部产品
+                    <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术规格比较 -->
+    <section id="technology" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">技术规格对比</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">我们的电池采用先进技术，性能远超市场同类产品</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">性能数据对比</h3>
+                    <p class="text-gray-600 mb-8">通过严格测试，我们的电池在各项关键指标上均优于市场同类产品，为您的无人机提供更持久、更稳定的动力支持。</p>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">能量密度 (Wh/kg)</span>
+                                <span class="font-bold">琪华能源: 280 | 竞品: 220</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">循环寿命 (次)</span>
+                                <span class="font-bold">琪华能源: 500 | 竞品: 350</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-secondary h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">充电效率 (%)</span>
+                                <span class="font-bold">琪华能源: 92 | 竞品: 85</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">放电倍率 (C)</span>
+                                <span class="font-bold">琪华能源: 25 | 竞品: 20</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-light p-6 rounded-xl">
+                        <h3 class="text-xl font-bold mb-6">性能对比图表</h3>
+                        <canvas id="performanceChart" width="400" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 应用场景 -->
+    <section id="applications" class="py-20 bg-gradient-to-b from-light to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">应用场景</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">我们的电池广泛应用于各种无人机领域，为不同行业提供可靠的动力解决方案</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 应用场景 1 -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow hover-scale">
+                    <img src="https://picsum.photos/id/111/600/400" alt="航空摄影" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">航空摄影</h3>
+                        <p class="text-gray-600">为专业航拍无人机提供持久动力，捕捉每一个精彩瞬间。</p>
+                    </div>
+                </div>
+                
+                <!-- 应用场景 2 -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow hover-scale">
+                    <img src="https://picsum.photos/id/160/600/400" alt="农业植保" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">农业植保</h3>
+                        <p class="text-gray-600">支持长时间作业，提高农业生产效率，降低劳动成本。</p>
+                    </div>
+                </div>
+                
+                <!-- 应用场景 3 -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow hover-scale">
+                    <img src="https://picsum.photos/id/119/600/400" alt="电力巡检" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">电力巡检</h3>
+                        <p class="text-gray-600">长航时设计，满足大范围巡检需求，保障电力设施安全。</p>
+                    </div>
+                </div>
+                
+                <!-- 应用场景 4 -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow hover-scale">
+                    <img src="https://picsum.photos/id/163/600/400" alt="物流配送" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">物流配送</h3>
+                        <p class="text-gray-600">高效能电池，支持无人机物流配送，缩短配送时间。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户评价 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">客户评价</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">听听我们的客户如何评价琪华能源电池的性能和可靠性</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 评价卡片 1 -->
+                <div class="bg-light rounded-xl p-8 card-shadow">
+                    <div class="flex items-center mb-6">
+                        <img src="https://picsum.photos/id/1005/100/100" alt="张小明" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold">张小明</h4>
+                            <p class="text-gray-500 text-sm">专业航拍摄影师</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "使用琪华能源电池后，我的航拍工作效率提高了40%。以前每次拍摄都要频繁更换电池，现在一组电池可以完成更多镜头，大大节省了时间和精力。"
+                    </p>
+                </div>
+                
+                <!-- 评价卡片 2 -->
+                <div class="bg-light rounded-xl p-8 card-shadow">
+                    <div class="flex items-center mb-6">
+                        <img src="https://picsum.photos/id/1012/100/100" alt="李强" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold">李强</h4>
+                            <p class="text-gray-500 text-sm">农业科技公司CEO</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star-half-o text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "我们公司的植保无人机队装备了琪华能源电池后，每天的作业面积显著增加。电池的稳定性和耐用性都非常出色，是农业无人机的理想选择。"
+                    </p>
+                </div>
+                
+                <!-- 评价卡片 3 -->
+                <div class="bg-light rounded-xl p-8 card-shadow">
+                    <div class="flex items-center mb-6">
+                        <img src="https://picsum.photos/id/1025/100/100" alt="王芳" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold">王芳</h4>
+                            <p class="text-gray-500 text-sm">电力巡检工程师</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "在山区进行电力巡检是一项艰巨的任务，琪华能源电池的长航时和低温性能表现超出了我们的预期。即使在恶劣环境下，也能稳定工作，为我们的巡检工作提供了可靠保障。"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="py-20 bg-gradient-to-b from-light to-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-6">关于 琪华能源</h2>
+                    <p class="text-gray-600 mb-6">
+                        琪华能源 成立于2018年，是一家专注于无人机电池研发与生产的高科技企业。我们拥有一支由电池专家、材料科学家和电子工程师组成的专业团队，致力于为全球无人机用户提供高性能、安全可靠的电池解决方案。
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        我们的使命是通过创新技术推动无人机行业发展，为各行业应用提供持久动力。凭借卓越的产品性能和完善的售后服务，琪华能源 已成为全球领先的无人机电池供应商之一。
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h3 class="text-3xl font-bold text-primary mb-2">50+</h3>
+                            <p class="text-gray-600">技术专利</p>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-primary mb-2">30+</h3>
+                            <p class="text-gray-600">国家和地区</p>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-primary mb-2">100K+</h3>
+                            <p class="text-gray-600">满意客户</p>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-primary mb-2">500+</h3>
+                            <p class="text-gray-600">企业合作</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-lg transition-custom hover-scale">
+                        了解更多
+                    </a>
+                </div>
+                
+                <div class="relative">
+                    <img src="https://picsum.photos/id/119/800/600" alt="琪华能源团队" class="rounded-xl shadow-2xl w-full">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg max-w-xs">
+                        <div class="flex items-center">
+                            <div class="bg-primary/10 p-3 rounded-full mr-3">
+                                <i class="fa fa-trophy text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">行业领先</h4>
+                                <p class="text-gray-600 text-sm">荣获多项行业创新奖项</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-20 bg-white">
+        
